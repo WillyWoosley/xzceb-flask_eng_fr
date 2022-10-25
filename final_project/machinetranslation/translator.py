@@ -17,6 +17,12 @@ language_translator = LanguageTranslatorV3(
 language_translator.set_service_url(url)
 
 def englishToFrench(englishText):
+    if englishText == None:
+        raise ValueError("Translation text cannot be None")
+
+    if len(englishText) == 0:
+        return ""
+
     translation = language_translator.translate(
         text = englishText,
         model_id = "en-fr",
@@ -26,6 +32,12 @@ def englishToFrench(englishText):
     return frenchText
 
 def frenchToEnglish(frenchText):
+    if frenchText == None:
+        raise ValueError("Translation text cannot be None")
+
+    if len(frenchText) == 0:
+        return ""
+    
     translation = language_translator.translate(
         text = frenchText,
         model_id = "fr-en",
